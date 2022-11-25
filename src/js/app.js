@@ -24,19 +24,10 @@ function read() {
     });
 }
 class GameSavingLoader {
-    static load() {
-        return new Promise((resolve, reject) => {
-            let data;
-            read().then((buffer) => {
-                data = buffer
-                json(data).then((son) => {
-                        resolve(son);
-
-                })
-
-            });
-        })
-
+    static async load() {
+        const data = await read()
+        const response = await json(data)
+        return response
 
     }
 }

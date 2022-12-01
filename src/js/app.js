@@ -5,7 +5,8 @@ export class GameSavingLoader {
     static async load() {
         const data = await read()
         const response = await json(data)
-        return response
+
+        return JSON.parse(response);
 
     }
 }
